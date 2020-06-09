@@ -10,12 +10,13 @@ import jess.*;
 
 public class SBC_Mecanico {
 
-    public static void main(String[] args) {
-        // TODO code application logic here
-        
-        
-        
-        
+    public static String ruta = "";
+    public static String hecho = "";
+    
+    public static void main(String[] args) throws JessException {
+        Rete r = new Rete();
+        r.batch(ruta);
+        r.run(); 
     }
     
 }
