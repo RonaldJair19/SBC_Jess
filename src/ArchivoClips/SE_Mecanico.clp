@@ -116,7 +116,7 @@
 	(bind ?fallo(readline))
 	(assert (fallo-carro(fallo_carro ?fallo)))
 	(printout t "" crlf)
-	(system cls)
+	;(system cls)
 )
 
 (defrule reglas
