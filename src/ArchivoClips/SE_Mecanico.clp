@@ -106,7 +106,7 @@
 (defrule inicial
 	(initial-fact)
 	=>
-	(dribble-on E:\Documentos\UTP\Cuarto_Anio\Sistemas_basados_en_el_conocimiento\CLIPS-master\CLIPS-master\microsoft_windows\Integration_Examples\ImplicitDLLExample\Historial_Eventos.txt)
+	;(dribble-on E:\Documentos\UTP\Cuarto_Anio\Sistemas_basados_en_el_conocimiento\CLIPS-master\CLIPS-master\microsoft_windows\Integration_Examples\ImplicitDLLExample\Historial_Eventos.txt)
 	(printout t "--Que tipo de falla presenta su vehiculo?" crlf)
 	(printout t "(A) Fallo del motor" crlf)
 	(printout t "(B) Fallo electrico" crlf)

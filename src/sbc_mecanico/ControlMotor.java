@@ -6,17 +6,35 @@ import java.util.logging.Logger;
 import jess.*;
 
 public class ControlMotor {
-    public static String ruta = "E:\\Documentos\\UTP\\Cuarto_Anio\\Sistemas_basados_en_el_conocimiento\\SBC_Mecanico\\SE_Mecanico.clp";
+    public static String ruta = "E:\\Documentos\\UTP\\Cuarto_Anio\\Sistemas_basados_en_el_conocimiento\\SBC_Mecanico\\src\\ArchivoClips\\SE_Mecanico.clp";
     public static String hecho = "";
+    static ControlMotor controlMotor;
+    Rete r = new Rete();
     
-    public static void main(String[] args) throws JessException {
+    public ControlMotor(){
         try{
-            Rete r = new Rete();
+            r.reset();
             r.batch(ruta);
             r.run();
-            r.reset();
         }catch (JessException ex){
             Logger.getLogger(SBC_Mecanico.class.getName()).log(Level.SEVERE, null,ex);
         }
     }
+    
+    public void F_Insertar(String hecho ) throws JessException{
+        System.out.println();//Borrar
+        r.assertString(hecho);
+        r.run();   
+    }
+    
+    public void F_Ejecutar(){
+        try{
+            r.run();
+        } catch (JessException ex){
+            Logger.getLogger(SBC_Mecanico.class.getName()).log(Level.SEVERE, null,ex);
+        }
+    }
+    
+    
+    
 }
