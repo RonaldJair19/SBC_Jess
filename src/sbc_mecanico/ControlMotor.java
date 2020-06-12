@@ -21,7 +21,7 @@ public class ControlMotor {
         }
     }
     
-    public void F_Insertar(String hecho ) throws JessException{
+    public void F_Insertar(String hecho) throws JessException{
         System.out.println();//Borrar
         r.assertString(hecho);
         r.run();   
