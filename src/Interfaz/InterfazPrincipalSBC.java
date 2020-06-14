@@ -197,7 +197,6 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Preguntas_Mostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -218,7 +217,9 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
                                 .addComponent(jButton3)))
                         .addContainerGap())
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Preguntas_Mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 15, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -340,7 +341,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         }else if(R_Btn_C.isSelected()){
             Vector_respuestas[Con] = 'C';
         }
-        else if(R_Btn_C.isSelected()){
+        else if(R_Btn_D.isSelected()){
             Vector_respuestas[Con] = 'D';
         }
         //this.pack();
@@ -367,13 +368,112 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
                     if(Vector[2] == 'A'){
                         //Aqui debe venir un reset y respuesta!
                         mostrar_respuesta();
-                        this.control_motor.F_Insertar("(assert (motor-ruido(motor_ruido A)))");
+                        this.control_motor.F_Insertar("(assert (motor-ruido(motor_ruido A)))");  
+                    }
+                    else if(Vector[2] == 'B'){
+                        this.control_motor.F_Insertar("(assert (motor-ruido(motor_ruido B)))");
+                        Preguntas_Mostrar.setText("<html> --Seleccione si nota alguna de las siguientes situaciones en su motor <p><p> (A) El motor no arranca en vacio <p> (B) Humo o quemadura <p> (C) No noto nada <html>");
+                        switch (Vector[3]) {
+                            case 'A':
+                                mostrar_respuesta();
+                                this.control_motor.F_Insertar("(assert (situaciones-motor(situaciones_motor A)))");
+                                break;
+                            case 'B':
+                                mostrar_respuesta();
+                                this.control_motor.F_Insertar("(assert (situaciones-motor(situaciones_motor B)))");
+                                break;
+                            case 'C':
+                                mostrar_respuesta();
+                                this.control_motor.F_Insertar("(assert (situaciones-motor(situaciones_motor C)))");
+                                break;
+                            default:
+                                break;
+                        } 
+                    }   
+                }
+                //Primera rama terminada
+                //Segunda rama por iniciar
+                else if(Vector[1] == 'B'){
+                    this.control_motor.F_Insertar("(assert (clase-motor(clase_motor B)))");
+                    Preguntas_Mostrar.setText("<html> -- Que clase de combustible utiliza su motor? <p><p> (A) Motor de gasolina <p> (B) Motor diesel");
+                    if(Vector[2] == 'A'){
+                        this.control_motor.F_Insertar("(assert (combustion-motor(combustion_del_motor A)))");
+                        Preguntas_Mostrar.setText("<html> --Siente un consumo exesivo de: <p><p> (A) Aceite <p> (B) Gasolina <p> (C) No siento consumo exesivo de nada");
+                        if(Vector[3] == 'A'){
+                            mostrar_respuesta();
+                            this.control_motor.F_Insertar("(assert (consumo-excesivo(consumo_excesivo A)))");
+                            }
+                        else if(Vector[3] == 'B'){
+                            mostrar_respuesta();
+                            this.control_motor.F_Insertar("(assert (consumo-excesivo(consumo_excesivo B)))");
+                            }
+                        else if(Vector[3] == 'C'){
+                            this.control_motor.F_Insertar("(assert (consumo-excesivo(consumo_excesivo C)))");
+                            Preguntas_Mostrar.setText("<html> --Siente el motor entrega toda su potencia? <p><p> (A) Si <p> (B) No");
+                            if(Vector[4] == 'A'){
+                                mostrar_respuesta();
+                                this.control_motor.F_Insertar("(assert(potencia-motor(potencia_motor A)))");
+                            }
+                            else if(Vector[4] == 'B'){
+                                mostrar_respuesta();
+                                this.control_motor.F_Insertar("(assert(potencia-motor(potencia_motor B)))");
+                            } 
+                        }    
+                        }
+                    else if (Vector[2] == 'B'){
+                        this.control_motor.F_Insertar("(assert (combustion-motor(combustion_del_motor B)))");
+                        Preguntas_Mostrar.setText("<html> --Que tipo de arranque esta teniendo su motor? <p><p> (A) Arranque dificil <p> (B) Arranque duro <p> (C) Arranque sin potencia <p> (D) Arranque normal");
+                        if(Vector[3] == 'A'){
+                            mostrar_respuesta();
+                            this.control_motor.F_Insertar("(assert (tipo-arranque(tipo_arranque A)))");  
+                        }
+                        else if (Vector[3] == 'B'){
+                            mostrar_respuesta();
+                            this.control_motor.F_Insertar("(assert (tipo-arranque(tipo_arranque B)))"); 
+                        }
+                        else if (Vector[3] == 'C'){
+                            mostrar_respuesta();
+                            this.control_motor.F_Insertar("(assert (tipo-arranque(tipo_arranque C)))"); 
+                        }
+                            else if(Vector[3] == 'D'){
+                                this.control_motor.F_Insertar("(assert (tipo-arranque(tipo_arranque D)))");
+                                Preguntas_Mostrar.setText("<html>  Nota alguna  de estas señales? <p><p> (A) Escape con humo negro <p> (B) Ruido Significativo <p> (C) No noto nada");
+                                if(Vector[4] == 'A'){
+                                mostrar_respuesta();
+                                this.control_motor.F_Insertar("(assert(indicios-arranque-normal(indicios_arranque_normal A)))");  
+                                }
+                                else if (Vector[4] == 'B'){
+                                    mostrar_respuesta();
+                                    this.control_motor.F_Insertar("(assert(indicios-arranque-normal(indicios_arranque_normal B)))");  
+                                }
+                                else if(Vector[4] == 'C'){
+                                    this.control_motor.F_Insertar("(assert(indicios-arranque-normal(indicios_arranque_normal C)))");
+                                    Preguntas_Mostrar.setText("<html>  --El auto ha estado detenido por mucho tiempo? <p><p> (A) Si <p> (B) No");
+                                    if(Vector[5] == 'A'){
+                                        mostrar_respuesta();
+                                        this.control_motor.F_Insertar("(assert (auto-detenido(auto_detenido A)))");
+                                    }
+                                    else if (Vector[5] == 'B'){
+                                        mostrar_respuesta();
+                                        this.control_motor.F_Insertar("(assert (auto-detenido(auto_detenido B)))");
+                                    }
+                                }
+
+
+
+                            
+                            
+                            }
                         
-                        
-             
                         
                     }
-                }
+                        
+                        
+                        
+                        
+                    }
+                
+                
            
            } 
         } catch (JessException ex) {

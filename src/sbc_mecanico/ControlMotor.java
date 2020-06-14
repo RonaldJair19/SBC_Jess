@@ -19,7 +19,7 @@ public class ControlMotor {
             r.batch(ruta);
             r.run();
         }catch (JessException ex){
-            Logger.getLogger(SBC_Mecanico.class.getName()).log(Level.SEVERE, null,ex);
+            Logger.getLogger(ControlMotor.class.getName()).log(Level.SEVERE, null,ex);
         }
     }
     
@@ -27,7 +27,7 @@ public class ControlMotor {
         //System.out.println();//Borrar
         r.eval(hecho);
         //r.assertString(hecho);
-        //r.executeCommand("(facts)");
+        r.executeCommand("(facts)");
         //r.executeCommand("(run)");
         this.r.run();
 
@@ -38,7 +38,7 @@ public class ControlMotor {
         try{
             this.r.run();
         } catch (JessException ex){
-            Logger.getLogger(SBC_Mecanico.class.getName()).log(Level.SEVERE, null,ex);
+            Logger.getLogger(ControlMotor.class.getName()).log(Level.SEVERE, null,ex);
         }
     }
     
@@ -46,7 +46,7 @@ public class ControlMotor {
         try{
             r.executeCommand("(reset)");
         } catch (JessException ex){
-            Logger.getLogger(SBC_Mecanico.class.getName()).log(Level.SEVERE, null,ex);
+            Logger.getLogger(ControlMotor.class.getName()).log(Level.SEVERE, null,ex);
         }   
     }
     

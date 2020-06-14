@@ -408,138 +408,140 @@
 )
 
 (defrule Regla2 ""
-	(fallo-carro(fallo_carro "A"))
-	(clase-motor(clase_motor "A"))
-	(motor-ruido(motor_ruido "B"))
-	(situaciones-motor(situaciones_motor "A"))
+	(fallo-carro(fallo_carro A))
+	(clase-motor(clase_motor A))
+	(motor-ruido(motor_ruido B))
+	(situaciones-motor(situaciones_motor A))
 =>
-	(printout t crlf "Diagnostico del sistema: Verifica los fusibles, contactos, conexiones del motor (como la estrella-triangulo)." crlf)
+	(printout t "Diagnostico del sistema: Verifica los fusibles, contactos, conexiones del motor (como la estrella-triangulo).")
 )
 
 (defrule Regla3 ""
-	(fallo-carro(fallo_carro "A"))
-	(clase-motor(clase_motor "A"))
-	(motor-ruido(motor_ruido "B"))
-	(situaciones-motor(situaciones_motor "B"))
+	(fallo-carro(fallo_carro A))
+	(clase-motor(clase_motor A))
+	(motor-ruido(motor_ruido B))
+	(situaciones-motor(situaciones_motor B))
 =>
-	(printout t crlf "Diagnostico del sistema: Cortocircuito, revisar la ventilacion del motor." crlf)
+	(printout t "Diagnostico del sistema: Cortocircuito, revisar la ventilacion del motor.")
 )
 
 (defrule Regla4 ""
-	(fallo-carro(fallo_carro "A"))
-	(clase-motor(clase_motor "A"))
-	(motor-ruido(motor_ruido "B"))
-	(situaciones-motor(situaciones_motor "C"))
+	(fallo-carro(fallo_carro A))
+	(clase-motor(clase_motor A))
+	(motor-ruido(motor_ruido B))
+	(situaciones-motor(situaciones_motor C))
 =>
-	(printout t crlf "Diagnostico del sistema: Bateria agotada, debe recargaro sustiruir." crlf)
+	(printout t "Diagnostico del sistema: Bateria agotada, debe recargaro sustiruir.")
 )
-
+ ;Segunda rama
 (defrule Regla5 ""
-	(fallo-carro(fallo_carro "A"))
-	(clase-motor(clase_motor "B"))
-	(combustion-motor(combustion_del_motor "A"))
-	(consumo-excesivo(consumo_excesivo "A"))
+	(fallo-carro(fallo_carro A))
+	(clase-motor(clase_motor B))
+	(combustion-motor(combustion_del_motor A))
+	(consumo-excesivo(consumo_excesivo A))
 =>
-	(printout t crlf "Diagnostico del sistema: Revisar retenedores o empaques" crlf)
+	(printout t "Diagnostico del sistema: Revisar retenedores o empaques")
 )
 
 (defrule Regla6 ""
-	(fallo-carro(fallo_carro "A"))
-	(clase-motor(clase_motor "B"))
-	(combustion-motor(combustion_del_motor "A"))
-	(consumo-excesivo(consumo_excesivo "B"))
+	(fallo-carro(fallo_carro A))
+	(clase-motor(clase_motor B))
+	(combustion-motor(combustion_del_motor A))
+	(consumo-excesivo(consumo_excesivo B))
 =>
-	(printout t crlf "Diagnostico del sistema: Fallas del carburador, fugas." crlf)
+	(printout t "Diagnostico del sistema: Fallas del carburador, fugas.")
 )
 
 (defrule Regla7 ""
-	(fallo-carro(fallo_carro "A"))
-	(clase-motor(clase_motor "B"))
-	(combustion-motor(combustion_del_motor "A"))
-	(consumo-excesivo(consumo_excesivo "C"))
-	(potencia-motor(potencia_motor "A"))
+	(fallo-carro(fallo_carro A))
+	(clase-motor(clase_motor B))
+	(combustion-motor(combustion_del_motor A))
+	(consumo-excesivo(consumo_excesivo C))
+	(potencia-motor(potencia_motor A))
 =>
-	(printout t crlf "Diagnostico del sistema: El embrague esta resbalando." crlf)
+	(printout t "Diagnostico del sistema: El embrague esta resbalando.")
 )
 
 (defrule Regla8 ""
-	(fallo-carro(fallo_carro "A"))
-	(clase-motor(clase_motor "B"))
-	(combustion-motor(combustion_del_motor "A"))
-	(consumo-excesivo(consumo_excesivo "C"))
-	(potencia-motor(potencia_motor "B"))
+	(fallo-carro(fallo_carro A))
+	(clase-motor(clase_motor B))
+	(combustion-motor(combustion_del_motor A))
+	(consumo-excesivo(consumo_excesivo C))
+	(potencia-motor(potencia_motor B))
 =>
-	(printout t crlf "Diagnostico del sistema: Junta de culata en mal estado." crlf)
+	(printout t "Diagnostico del sistema: Junta de culata en mal estado.")
 )
 
 (defrule Regla9 ""
-	(fallo-carro(fallo_carro "A"))
-	(clase-motor(clase_motor "B"))
-	(combustion-motor(combustion_del_motor "B"))
-	(tipo-arranque(tipo_arranque "A"))
+	(fallo-carro(fallo_carro A))
+	(clase-motor(clase_motor B))
+	(combustion-motor(combustion_del_motor B))
+	(tipo-arranque(tipo_arranque A))
 =>
-	(printout t crlf "Diagnostico del sistema: Baja compresion o un problema de suministro de combustible." crlf)
+	(printout t "Diagnostico del sistema: Baja compresion o un problema de suministro de combustible.")
 )
 
 (defrule Regla10 ""
-	(fallo-carro(fallo_carro "A"))
-	(clase-motor(clase_motor "B"))
-	(combustion-motor(combustion_del_motor "B"))
-	(tipo-arranque(tipo_arranque "B"))
+	(fallo-carro(fallo_carro A))
+	(clase-motor(clase_motor B))
+	(combustion-motor(combustion_del_motor B))
+	(tipo-arranque(tipo_arranque B))
 =>
-	(printout t crlf "Diagnostico del sistema: Peso incorrecto viscosidad." crlf)
+	(printout t "Diagnostico del sistema: Peso incorrecto viscosidad.")
 )
 
 (defrule Regla11 ""
-	(fallo-carro(fallo_carro "A"))
-	(clase-motor(clase_motor "B"))
-	(combustion-motor(combustion_del_motor "B"))
-	(tipo-arranque(tipo_arranque "C"))
+	(fallo-carro(fallo_carro A))
+	(clase-motor(clase_motor B))
+	(combustion-motor(combustion_del_motor B))
+	(tipo-arranque(tipo_arranque C))
 =>
-	(printout t crlf "Diagnostico del sistema: Filtros de combustible sucios, la conexion floja del acelerador, la lubricacion excesiva." crlf)
+	(printout t "Diagnostico del sistema: Filtros de combustible sucios, la conexion floja del acelerador, la lubricacion excesiva.")
 )
 
 (defrule Regla12 ""
-	(fallo-carro(fallo_carro "A"))
-	(clase-motor(clase_motor "B"))
-	(combustion-motor(combustion_del_motor "B"))
-	(tipo-arranque(tipo_arranque "D"))
-	(indicios-arranque-normal(indicios_arranque_normal "A"))
+	(fallo-carro(fallo_carro A))
+	(clase-motor(clase_motor B))
+	(combustion-motor(combustion_del_motor B))
+	(tipo-arranque(tipo_arranque D))
+	(indicios-arranque-normal(indicios_arranque_normal A))
 =>
-	(printout t crlf "Diagnostico del sistema: Un inyector o una bomba inyectora o un filtro de aire o una valvula EGR." crlf)
+	(printout t "Diagnostico del sistema: Un inyector o una bomba inyectora o un filtro de aire o una valvula EGR.")
 )
 
 (defrule Regla13 ""
-	(fallo-carro(fallo_carro "A"))
-	(clase-motor(clase_motor "B"))
-	(combustion-motor(combustion_del_motor "B"))
-	(tipo-arranque(tipo_arranque "D"))
-	(indicios-arranque-normal(indicios_arranque_normal "C"))
+	(fallo-carro(fallo_carro A))
+	(clase-motor(clase_motor B))
+	(combustion-motor(combustion_del_motor B))
+	(tipo-arranque(tipo_arranque D))
+	(indicios-arranque-normal(indicios_arranque_normal B))
 =>
-	(printout t crlf "Diagnostico del sistema: Problema con los inyectores de combustible." crlf)
+	(printout t "Diagnostico del sistema: Problema con los inyectores de combustible.")
 )
 
 (defrule Regla14 ""
-	(fallo-carro(fallo_carro "A"))
-	(clase-motor(clase_motor "B"))
-	(combustion-motor(combustion_del_motor "B"))
-	(tipo-arranque(tipo_arranque "D"))
-	(indicios-arranque-normal(indicios_arranque_normal "C"))
-	(auto-detenido(auto_detenido "A"))
+	(fallo-carro(fallo_carro A))
+	(clase-motor(clase_motor B))
+	(combustion-motor(combustion_del_motor B))
+	(tipo-arranque(tipo_arranque D))
+	(indicios-arranque-normal(indicios_arranque_normal C))
+	(auto-detenido(auto_detenido A))
 =>
-	(printout t crlf "Diagnostico del sistema: Aceite Oxidado o agua en el lubricante del motor." crlf)
+	(printout t "Diagnostico del sistema: Aceite Oxidado o agua en el lubricante del motor." crlf)
 )
 
 (defrule Regla15 ""
-	(fallo-carro(fallo_carro "A"))
-	(clase-motor(clase_motor "B"))
-	(combustion-motor(combustion_del_motor "B"))
-	(tipo-arranque(tipo_arranque "D"))
-	(indicios-arranque-normal(indicios_arranque_normal "C"))
-	(auto-detenido(auto_detenido "B"))
+	(fallo-carro(fallo_carro A))
+	(clase-motor(clase_motor B))
+	(combustion-motor(combustion_del_motor B))
+	(tipo-arranque(tipo_arranque D))
+	(indicios-arranque-normal(indicios_arranque_normal C))
+	(auto-detenido(auto_detenido B))
 =>
-	(printout t crlf "Diagnostico del sistema: Bujia de incandescencia defectuosa." crlf)
+	(printout t "Diagnostico del sistema: Bujia de incandescencia defectuosa." crlf)
 )
+;Fin hasta aquí
+
 
 (defrule Regla16 ""
 	(fallo-carro(fallo_carro "B"))
