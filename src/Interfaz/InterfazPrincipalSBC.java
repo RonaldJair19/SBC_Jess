@@ -32,10 +32,15 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
     public InterfazPrincipalSBC() {
         initComponents();
         Btn_Siguiente.setEnabled(false);
+        Btn_Reiniciar.setEnabled(false);
         GBtn_Principal.add(R_Btn_A);
         GBtn_Principal.add(R_Btn_B);
         GBtn_Principal.add(R_Btn_C);
         GBtn_Principal.add(R_Btn_D);
+        R_Btn_A.setEnabled(false);
+        R_Btn_B.setEnabled(false);
+        R_Btn_C.setEnabled(false);
+        R_Btn_D.setEnabled(false);
     }
 
     /**
@@ -63,7 +68,8 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         R_Btn_C = new javax.swing.JRadioButton();
         R_Btn_D = new javax.swing.JRadioButton();
         jPanel4 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        Btn_Reiniciar = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -93,7 +99,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(222, 222, 222)
                         .addComponent(jLabel2)))
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,21 +129,23 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         });
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Preguntas");
 
-        Preguntas_Mostrar.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        Preguntas_Mostrar.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         Preguntas_Mostrar.setForeground(new java.awt.Color(255, 255, 255));
         Preguntas_Mostrar.setText("Aquí se mostrarán las preguntas del SBC.");
 
         jButton3.setText("Mostrar inferencia");
 
         R_Btn_A.setBackground(new java.awt.Color(102, 102, 102));
+        R_Btn_A.setFont(new java.awt.Font("Cooper Black", 0, 24)); // NOI18N
         R_Btn_A.setForeground(new java.awt.Color(255, 255, 255));
         R_Btn_A.setText("A");
 
         R_Btn_B.setBackground(new java.awt.Color(102, 102, 102));
+        R_Btn_B.setFont(new java.awt.Font("Cooper Black", 0, 24)); // NOI18N
         R_Btn_B.setForeground(new java.awt.Color(255, 255, 255));
         R_Btn_B.setText("B");
         R_Btn_B.addActionListener(new java.awt.event.ActionListener() {
@@ -147,6 +155,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         });
 
         R_Btn_C.setBackground(new java.awt.Color(102, 102, 102));
+        R_Btn_C.setFont(new java.awt.Font("Cooper Black", 0, 24)); // NOI18N
         R_Btn_C.setForeground(new java.awt.Color(255, 255, 255));
         R_Btn_C.setText("C");
         R_Btn_C.addActionListener(new java.awt.event.ActionListener() {
@@ -156,6 +165,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         });
 
         R_Btn_D.setBackground(new java.awt.Color(102, 102, 102));
+        R_Btn_D.setFont(new java.awt.Font("Cooper Black", 0, 24)); // NOI18N
         R_Btn_D.setForeground(new java.awt.Color(255, 255, 255));
         R_Btn_D.setText("D");
         R_Btn_D.addActionListener(new java.awt.event.ActionListener() {
@@ -168,12 +178,17 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 517, Short.MAX_VALUE)
+            .addGap(0, 587, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Respuesta");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -201,11 +216,14 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
                                 .addComponent(Btn_Siguiente)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton3)))
-                        .addContainerGap())))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 67, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 15, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(249, 249, 249))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,8 +231,8 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Preguntas_Mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
+                .addComponent(Preguntas_Mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(R_Btn_A)
                     .addComponent(R_Btn_B))
@@ -224,20 +242,22 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
                     .addComponent(R_Btn_C)
                     .addComponent(Btn_Siguiente)
                     .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79))
+                .addGap(20, 20, 20))
         );
 
-        jButton4.setText("Reiniciar");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        Btn_Reiniciar.setText("Reiniciar");
+        Btn_Reiniciar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
+                Btn_ReiniciarMouseClicked(evt);
             }
         });
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        Btn_Reiniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                Btn_ReiniciarActionPerformed(evt);
             }
         });
 
@@ -258,30 +278,28 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton5)
                         .addGap(165, 165, 165)
-                        .addComponent(jButton4)
+                        .addComponent(Btn_Reiniciar)
                         .addGap(206, 206, 206)
                         .addComponent(jButton1)))
                 .addContainerGap(17, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton4)
+                    .addComponent(Btn_Reiniciar)
                     .addComponent(jButton5))
                 .addContainerGap())
         );
@@ -298,7 +316,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 727, Short.MAX_VALUE)
+            .addGap(0, 676, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -378,12 +396,14 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
     
     public void mostrar_respuesta(){
         TextArea ta = new TextArea (20, 80);
-        ta.setBounds(1,1,500,100);
+        ta.setBounds(1,1,587,100);
         TextAreaWriter taw = new TextAreaWriter (ta);
         control_motor.r.addOutputRouter("t", taw);
         control_motor.r.addOutputRouter("WSTDOUT", taw);
         control_motor.r.addOutputRouter("WSTDERR", taw);
         jPanel4.add(ta);
+        Btn_Reiniciar.setEnabled(true);
+        Btn_Siguiente.setEnabled(false);
         
     }
     
@@ -395,6 +415,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         Vector_respuestas[i]= ' ';
          }
         Con = 0;
+        Btn_Reiniciar.setEnabled(false);
     }
 
     
@@ -412,9 +433,9 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_R_Btn_DActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void Btn_ReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ReiniciarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_Btn_ReiniciarActionPerformed
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
 
@@ -424,7 +445,11 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         // Método para cuando se presione iniciar el SBC
         Btn_Siguiente.setEnabled(true);
         Preguntas_Mostrar.setText("<html> --Que tipo de falla presenta su vehiculo? <p><p> (A) Fallo del motor <p> (B) Fallo electrico <p> (C) Fallo en la suspension <p>(D) Fallo en los frenos<html>");
-        
+        R_Btn_A.setEnabled(true);
+        R_Btn_B.setEnabled(true);
+        R_Btn_C.setEnabled(true);
+        R_Btn_D.setEnabled(true);
+        jButton5.setEnabled(false);
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -433,11 +458,11 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         
     }//GEN-LAST:event_Btn_SiguienteActionPerformed
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+    private void Btn_ReiniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_ReiniciarMouseClicked
         Btn_Siguiente.setEnabled(true);
         Preguntas_Mostrar.setText("<html> --Que tipo de falla presenta su vehiculo? <p><p> (A) Fallo del motor <p> (B) Fallo electrico <p> (C) Fallo en la suspension <p>(D) Fallo en los frenos<html>");
         Fin_Rama();  
-    }//GEN-LAST:event_jButton4MouseClicked
+    }//GEN-LAST:event_Btn_ReiniciarMouseClicked
     
     
     public void setControlMotor(ControlMotor motor_control){
@@ -457,6 +482,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn_Reiniciar;
     private javax.swing.JButton Btn_Siguiente;
     private javax.swing.ButtonGroup GBtn_Principal;
     private javax.swing.JLabel Preguntas_Mostrar;
@@ -466,11 +492,11 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
     private javax.swing.JRadioButton R_Btn_D;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
