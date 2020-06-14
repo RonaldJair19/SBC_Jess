@@ -42,6 +42,13 @@ public class ControlMotor {
         }
     }
     
+    public void F_Reiniciar(){
+        try{
+            r.executeCommand("(reset)");
+        } catch (JessException ex){
+            Logger.getLogger(SBC_Mecanico.class.getName()).log(Level.SEVERE, null,ex);
+        }   
+    }
     
     
 }

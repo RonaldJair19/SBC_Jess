@@ -230,6 +230,11 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         );
 
         jButton4.setText("Reiniciar");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -343,22 +348,11 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
                     Preguntas_Mostrar.setText("<html> -- Su motor electrico hace algun ruido? <p><p> (A) Si <p> (B) No hace ningun ruido");
                     if(Vector[2] == 'A'){
                         //Aqui debe venir un reset y respuesta!
-                        TextArea ta = new TextArea (20, 80);
-                        ta.setBounds(1,1,500,100);
-                        TextAreaWriter taw = new TextAreaWriter (ta);
-                        control_motor.r.addOutputRouter("t", taw);
-                        control_motor.r.addOutputRouter("WSTDOUT", taw);
-                        control_motor.r.addOutputRouter("WSTDERR", taw);
-                        jPanel4.add(ta);
+                        mostrar_respuesta();
                         this.control_motor.F_Insertar("(assert (motor-ruido(motor_ruido A)))");
                         
                         
-                        
-                        try {
-                       
-                        } catch (Exception ex) {
-                            Logger.getLogger(InterfazPrincipalSBC.class.getName()).log(Level.SEVERE, null, ex);
-                        }
+             
                         
                     }
                 }
@@ -382,11 +376,25 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         
     }
     
+    public void mostrar_respuesta(){
+        TextArea ta = new TextArea (20, 80);
+        ta.setBounds(1,1,500,100);
+        TextAreaWriter taw = new TextAreaWriter (ta);
+        control_motor.r.addOutputRouter("t", taw);
+        control_motor.r.addOutputRouter("WSTDOUT", taw);
+        control_motor.r.addOutputRouter("WSTDERR", taw);
+        jPanel4.add(ta);
+        
+    }
     
     public void Fin_Rama(){
-        jPanel4
-        
-        
+        jPanel4.removeAll();
+        control_motor.F_Reiniciar();
+        for(int i=0;i<Vector_respuestas.length;i++)
+        {
+        Vector_respuestas[i]= ' ';
+         }
+        Con = 0;
     }
 
     
@@ -424,6 +432,12 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_Btn_SiguienteActionPerformed
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        Btn_Siguiente.setEnabled(true);
+        Preguntas_Mostrar.setText("<html> --Que tipo de falla presenta su vehiculo? <p><p> (A) Fallo del motor <p> (B) Fallo electrico <p> (C) Fallo en la suspension <p>(D) Fallo en los frenos<html>");
+        Fin_Rama();  
+    }//GEN-LAST:event_jButton4MouseClicked
     
     
     public void setControlMotor(ControlMotor motor_control){
