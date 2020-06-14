@@ -14,6 +14,8 @@ import java.util.logging.Logger;
  * @author samu9
  */
 public class InterfazPrincipalSBC extends javax.swing.JFrame {
+    char [] Vector_respuestas = new char[8];
+    int Con = 0;
     private ControlMotor motor_control;
     ControlMotor control_motor = new ControlMotor();
     /**
@@ -187,7 +189,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Preguntas_Mostrar, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                .addComponent(Preguntas_Mostrar, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(R_Btn_A)
@@ -239,7 +241,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
                         .addComponent(jButton4)
                         .addGap(206, 206, 206)
                         .addComponent(jButton1)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,50 +261,82 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 644, Short.MAX_VALUE)
+            .addGap(0, 635, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 448, Short.MAX_VALUE)
+            .addGap(0, 504, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
+    
+    
     private void Btn_SiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_SiguienteMouseClicked
+        /*if(A == "A"){
+        this.control_motor.F_Insertar("(assert (fallo-carro(fallo_carro A)))");
+        }*/
+        if (R_Btn_A.isSelected()) {
+            Vector_respuestas[Con] = 'A';
+        } else if(R_Btn_B.isSelected()){
+            Vector_respuestas[Con] = 'B';
+        }else if(R_Btn_C.isSelected()){
+            Vector_respuestas[Con] = 'C';
+        }
+        else if(R_Btn_C.isSelected()){
+            Vector_respuestas[Con] = 'D';
+        }
+        //this.pack();
+        Con = Con + 1;
+        GBtn_Principal.clearSelection();
+        Vector_de_respuestas(Vector_respuestas);
+    }//GEN-LAST:event_Btn_SiguienteMouseClicked
+    
+    private void Vector_de_respuestas(char[] Vector){
+        /*for(int i=0;i<Vector.length;i++)
+    {
+        
+    }*/
+        
         try{
-            
-            
-            
-            if(R_Btn_A.isSelected()){
-                this.control_motor.F_Insertar("(assert (fallo-carro(fallo_carro A)))");
-            }else if(R_Btn_B.isSelected()){
-                this.control_motor.F_Insertar("(assert (fallo-carro(fallo_carro B)))");
-            }else if(R_Btn_C.isSelected()){
-                this.control_motor.F_Insertar("(assert (fallo-carro(fallo_carro C)))");
-            }
-            else if(R_Btn_C.isSelected()){
-                this.control_motor.F_Insertar("(assert (fallo-carro(fallo_carro D)))");
-            }
-            
-            
-            
-            //this.pack();
+           if(Vector[0] == 'A'){
+            this.control_motor.F_Insertar("(assert (fallo-carro(fallo_carro A)))");
+            Preguntas_Mostrar.setText("<html> -- Que tipo de motor utiliza su automovil? <p><p> (A) Motor Electrico <p> (B) Motor de combustion interna <p> (C) Fallo en la suspension<html>");  
+                if(Vector[1] == 'A'){
+                    this.control_motor.F_Insertar("(assert (clase-motor(clase_motor A)))");
+                    Preguntas_Mostrar.setText("<html> -- Su motor electrico hace algun ruido? <p><p> (A) Si <p> (B) No hace ningun ruido");
+                    if(Vector[2] == 'A'){
+                        this.control_motor.F_Insertar("(assert (motor-ruido(motor_ruido A)))");
+                        //Aqui debe venir un reset y respuesta!
+                    }
+                }
+           
+           } 
         } catch (JessException ex) {
             Logger.getLogger(InterfazPrincipalSBC.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_Btn_SiguienteMouseClicked
-
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
     private void R_Btn_BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R_Btn_BActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_R_Btn_BActionPerformed
@@ -326,7 +360,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // Método para cuando se presione iniciar el SBC
         Btn_Siguiente.setEnabled(true);
-        Preguntas_Mostrar.setText("<html> --Que tipo de falla presenta su vehiculo? <p> (A) Fallo del motor <html>");
+        Preguntas_Mostrar.setText("<html> --Que tipo de falla presenta su vehiculo? <p><p> (A) Fallo del motor <p> (B) Fallo electrico <p> (C) Fallo en la suspension <p>(D) Fallo en los frenos<html>");
         
         
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -346,30 +380,6 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InterfazPrincipalSBC.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InterfazPrincipalSBC.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InterfazPrincipalSBC.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterfazPrincipalSBC.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new InterfazPrincipalSBC().setVisible(true);
