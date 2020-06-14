@@ -7,7 +7,7 @@ import jess.*;
 
 public class ControlMotor {
     public static String ruta = "E:\\Documentos\\UTP\\Cuarto_Anio\\Sistemas_basados_en_el_conocimiento\\SBC_Mecanico\\src\\ArchivoClips\\SE_Mecanico.clp";
-    public static String hecho = "";
+    //public static String hecho;
     static ControlMotor controlMotor;
     Rete r = new Rete();
     
@@ -23,13 +23,16 @@ public class ControlMotor {
     
     public void F_Insertar(String hecho) throws JessException{
         System.out.println();//Borrar
-        r.assertString(hecho);
-        r.run();   
+        r.eval(hecho);
+        //r.assertString(hecho);
+        r.executeCommand("(facts)");
+        //r.executeCommand("(run)");
+        this.r.run();
     }
     
     public void F_Ejecutar(){
         try{
-            r.run();
+            this.r.run();
         } catch (JessException ex){
             Logger.getLogger(SBC_Mecanico.class.getName()).log(Level.SEVERE, null,ex);
         }

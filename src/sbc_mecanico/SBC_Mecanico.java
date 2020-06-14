@@ -1,9 +1,9 @@
 package sbc_mecanico;
-import Interfaz.Interfaz_SBC;
+import Interfaz.InterfazPrincipalSBC;
 
 public class SBC_Mecanico {
     public static void main(String[] args){
-      Interfaz_SBC InterfazPrincipal = new Interfaz_SBC();
+      InterfazPrincipalSBC InterfazPrincipal = new InterfazPrincipalSBC();
       ControlMotor controlMotor = new ControlMotor();
       
       InterfazPrincipal.setControlMotor(controlMotor);

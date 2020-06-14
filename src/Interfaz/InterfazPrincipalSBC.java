@@ -97,6 +97,11 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
                 Btn_SiguienteMouseClicked(evt);
             }
         });
+        Btn_Siguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_SiguienteActionPerformed(evt);
+            }
+        });
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
@@ -260,16 +265,18 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_SiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_SiguienteMouseClicked
+        String A = "A";
         try{
-            if(R_Btn_A.isSelected() || Btn_Siguiente.getText().equals("Otra vez")){
-                this.control_motor.F_Insertar("B");
-
+            if(R_Btn_A.isSelected()){
+                this.control_motor.F_Insertar("(assert (fallo-carro(fallo_carro A)))");
             }else if(R_Btn_B.isSelected()){
-                this.control_motor.F_Insertar("B");
+                this.control_motor.F_Insertar("(assert (clase-motor(clase_motor A)))");
+            }else if(R_Btn_C.isSelected()){
+                this.control_motor.F_Insertar("(assert (motor-ruido(motor_ruido A)))");
             }
             //this.pack();
         } catch (JessException ex) {
-            Logger.getLogger(Interfaz_SBC.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InterfazPrincipalSBC.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Btn_SiguienteMouseClicked
 
@@ -297,10 +304,15 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         // TODO add your handling code here:
         //Preguntas_Mostrar.setText(String valueOf(control_motor.F_Ejecutar))
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void Btn_SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SiguienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_SiguienteActionPerformed
     
     
     public void setControlMotor(ControlMotor motor_control){
         this.motor_control = motor_control;
+        //motor_control.F_Ejecutar();
     }
         
     /**

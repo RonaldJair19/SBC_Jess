@@ -3,7 +3,7 @@
 
 ;Hechos del sistema
 (deftemplate fallo-carro "Tipo de fallo del automovil"
-	(slot fallo_carro(type STRING))
+	(slot fallo_carro)
 )
 
 (deftemplate clase-motor "Clase de motor que utiliza el cliente"
@@ -113,11 +113,22 @@
 	(printout t "(C) Fallo en la suspension" crlf)
 	(printout t "(D) Fallo en los frenos" crlf)
 	(printout t "Respuesta: ")
-	;(bind ?fallo(readline))
+	;(bind ?fallo(readline))	
 	;(assert (fallo-carro(fallo_carro ?fallo)))
 	;(printout t "" crlf)
 	;(system cls)
+	
 )
+
+
+(defrule prueba
+	(fallo-carro (fallo_carro A))
+	=>
+	(printout t "-- Que tipo de motor utiliza su automovil?" crlf)
+	(printout t "(A) Motor Electrico" crlf)
+	(printout t "(B) Motor de combustion interna" crlf)
+	(printout t "Respuesta: ")
+	)
 
 (defrule reglas
 	(fallo-carro(fallo_carro ?fallo))
@@ -384,9 +395,9 @@
 
 ;Definiendo las reglas
 (defrule Regla1 ""
-	(fallo-carro(fallo_carro "A"))
-	(clase-motor(clase_motor "A"))
-	(motor-ruido(motor_ruido "A"))
+	(fallo-carro(fallo_carro A))
+	(clase-motor(clase_motor A))
+	(motor-ruido(motor_ruido A))
 =>
 	(printout t crlf "Diagnostico del sistema: Verificar fijaciones, cojinetes y barras del rotor." crlf)
 )
