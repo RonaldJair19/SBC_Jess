@@ -106,33 +106,33 @@
 
 
 ;Definiendo las reglas 
-(defrule inicial
-	(initial-fact)
-	=>
-	;(dribble-on E:\Documentos\UTP\Cuarto_Anio\Sistemas_basados_en_el_conocimiento\CLIPS-master\CLIPS-master\microsoft_windows\Integration_Examples\ImplicitDLLExample\Historial_Eventos.txt)
-	(printout t "--Que tipo de falla presenta su vehiculo?" crlf)
-	(printout t "(A) Fallo del motor" crlf)
-	(printout t "(B) Fallo electrico" crlf)
-	(printout t "(C) Fallo en la suspension" crlf)
-	(printout t "(D) Fallo en los frenos" crlf)
-	(printout t "Respuesta: ")
-	;(bind ?fallo(readline))	
+;(defrule inicial
+;	(initial-fact)
+;	=>
+;	;(dribble-on E:\Documentos\UTP\Cuarto_Anio\Sistemas_basados_en_el_conocimiento\CLIPS-master\CLIPS-master\microsoft_windows\Integration_Examples\ImplicitDLLExample\Historial_Eventos.txt)
+;	(printout t "--Que tipo de falla presenta su vehiculo?" crlf)
+;	(printout t "(A) Fallo del motor" crlf)
+;	(printout t "(B) Fallo electrico" crlf)
+;	(printout t "(C) Fallo en la suspension" crlf)
+;	(printout t "(D) Fallo en los frenos" crlf)
+;	(printout t "Respuesta: ")
+;	;(bind ?fallo(readline))	
 	;(assert (fallo-carro(fallo_carro ?fallo)))
 	;(printout t "" crlf)
 	;(system cls)
 	
-)
+;)
 
 
-(defrule prueba
-	(fallo-carro (fallo_carro A))
-	=>
-	(printout t "-- Que tipo de motor utiliza su automovil?" crlf)
-	(printout t "(A) Motor Electrico" crlf)
-	(printout t "(B) Motor de combustion interna" crlf)
-	(printout t "Respuesta: ")
+;(defrule prueba
+;	(fallo-carro (fallo_carro A))
+;	=>
+;	(printout t "-- Que tipo de motor utiliza su automovil?" crlf)
+;	(printout t "(A) Motor Electrico" crlf)
+;	(printout t "(B) Motor de combustion interna" crlf)
+;	(printout t "Respuesta: ")
 	
-	)
+;	)
 
 (defrule reglas
 	(fallo-carro(fallo_carro ?fallo))
@@ -403,8 +403,8 @@
 	(clase-motor(clase_motor A))
 	(motor-ruido(motor_ruido A))
 =>
-	(printout t crlf "Diagnostico del sistema: Verificar fijaciones, cojinetes y barras del rotor." crlf)
-	;(assert(respuesta_sistema(respuesta_final "Diagnostico del sistema: Verificar fijaciones, cojinetes y barras del rotor." crlf")))
+	(printout t "Diagnostico del sistema: Verificar fijaciones, cojinetes y barras del rotor.")
+	;(assert(respuesta_sistema(respuesta_final "Diagnostico del sistema: Verificar fijaciones, cojinetes y barras del rotor"));
 )
 
 (defrule Regla2 ""

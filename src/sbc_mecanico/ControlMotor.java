@@ -1,16 +1,18 @@
 package sbc_mecanico;
+import Interfaz.InterfazPrincipalSBC;
+import java.awt.TextArea;
 import jess.JessException;
 import jess.Rete;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jess.*;
+import jess.awt. *;
 
 public class ControlMotor {
     public static String ruta = "E:\\Documentos\\UTP\\Cuarto_Anio\\Sistemas_basados_en_el_conocimiento\\SBC_Mecanico\\src\\ArchivoClips\\SE_Mecanico.clp";
     //public static String hecho;
     static ControlMotor controlMotor;
-    Rete r = new Rete();
-    
+    public Rete r = new Rete();
     public ControlMotor(){
         try{
             r.reset();
@@ -22,12 +24,14 @@ public class ControlMotor {
     }
     
     public void F_Insertar(String hecho) throws JessException{
-        System.out.println();//Borrar
+        //System.out.println();//Borrar
         r.eval(hecho);
         //r.assertString(hecho);
-        r.executeCommand("(facts)");
+        //r.executeCommand("(facts)");
         //r.executeCommand("(run)");
         this.r.run();
+
+        
     }
     
     public void F_Ejecutar(){

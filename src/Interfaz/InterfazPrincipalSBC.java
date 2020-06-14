@@ -4,10 +4,18 @@
  * and open the template in the editor.
  */
 package Interfaz;
+import java.awt.TextArea;
+import java.io.Writer;
 import jess.JessException;
 import sbc_mecanico.ControlMotor;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import jess.awt.TextAreaWriter;
+import jess.swing.JTextAreaWriter;
+import jess.awt. *;
+
 
 /**
  *
@@ -54,6 +62,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         R_Btn_B = new javax.swing.JRadioButton();
         R_Btn_C = new javax.swing.JRadioButton();
         R_Btn_D = new javax.swing.JRadioButton();
+        jPanel4 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
@@ -124,9 +133,11 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
 
         jButton3.setText("Mostrar inferencia");
 
+        R_Btn_A.setBackground(new java.awt.Color(102, 102, 102));
         R_Btn_A.setForeground(new java.awt.Color(255, 255, 255));
         R_Btn_A.setText("A");
 
+        R_Btn_B.setBackground(new java.awt.Color(102, 102, 102));
         R_Btn_B.setForeground(new java.awt.Color(255, 255, 255));
         R_Btn_B.setText("B");
         R_Btn_B.addActionListener(new java.awt.event.ActionListener() {
@@ -135,6 +146,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
             }
         });
 
+        R_Btn_C.setBackground(new java.awt.Color(102, 102, 102));
         R_Btn_C.setForeground(new java.awt.Color(255, 255, 255));
         R_Btn_C.setText("C");
         R_Btn_C.addActionListener(new java.awt.event.ActionListener() {
@@ -143,6 +155,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
             }
         });
 
+        R_Btn_D.setBackground(new java.awt.Color(102, 102, 102));
         R_Btn_D.setForeground(new java.awt.Color(255, 255, 255));
         R_Btn_D.setText("D");
         R_Btn_D.addActionListener(new java.awt.event.ActionListener() {
@@ -150,6 +163,17 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
                 R_Btn_DActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 517, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -161,27 +185,27 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
                     .addComponent(Preguntas_Mostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(35, 35, 35)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addComponent(R_Btn_A)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(R_Btn_B))
-                                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addComponent(R_Btn_C)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(R_Btn_D)))
-                                        .addGap(162, 162, 162))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGap(218, 218, 218)
-                                        .addComponent(Btn_Siguiente)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
-                                        .addComponent(jButton3))))
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18))))
+                                        .addComponent(R_Btn_A)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                                        .addComponent(R_Btn_B))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addComponent(R_Btn_C)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(R_Btn_D)))
+                                .addGap(70, 70, 70)
+                                .addComponent(Btn_Siguiente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton3)))
+                        .addContainerGap())))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 67, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,20 +213,20 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Preguntas_Mostrar, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Preguntas_Mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(R_Btn_A)
                     .addComponent(R_Btn_B))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(R_Btn_D)
-                    .addComponent(R_Btn_C))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(R_Btn_C)
                     .addComponent(Btn_Siguiente)
                     .addComponent(jButton3))
-                .addGap(14, 14, 14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79))
         );
 
         jButton4.setText("Reiniciar");
@@ -241,7 +265,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
                         .addComponent(jButton4)
                         .addGap(206, 206, 206)
                         .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,15 +285,19 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 635, Short.MAX_VALUE)
+            .addGap(0, 646, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 504, Short.MAX_VALUE)
+            .addGap(0, 727, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -299,6 +327,8 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_SiguienteMouseClicked
     
     private void Vector_de_respuestas(char[] Vector){
+       
+        
         /*for(int i=0;i<Vector.length;i++)
     {
         
@@ -312,8 +342,24 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
                     this.control_motor.F_Insertar("(assert (clase-motor(clase_motor A)))");
                     Preguntas_Mostrar.setText("<html> -- Su motor electrico hace algun ruido? <p><p> (A) Si <p> (B) No hace ningun ruido");
                     if(Vector[2] == 'A'){
-                        this.control_motor.F_Insertar("(assert (motor-ruido(motor_ruido A)))");
                         //Aqui debe venir un reset y respuesta!
+                        TextArea ta = new TextArea (20, 80);
+                        ta.setBounds(1,1,500,100);
+                        TextAreaWriter taw = new TextAreaWriter (ta);
+                        control_motor.r.addOutputRouter("t", taw);
+                        control_motor.r.addOutputRouter("WSTDOUT", taw);
+                        control_motor.r.addOutputRouter("WSTDERR", taw);
+                        jPanel4.add(ta);
+                        this.control_motor.F_Insertar("(assert (motor-ruido(motor_ruido A)))");
+                        
+                        
+                        
+                        try {
+                       
+                        } catch (Exception ex) {
+                            Logger.getLogger(InterfazPrincipalSBC.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        
                     }
                 }
            
@@ -336,6 +382,15 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         
     }
     
+    
+    public void Fin_Rama(){
+        jPanel4
+        
+        
+    }
+
+    
+   
     
     private void R_Btn_BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R_Btn_BActionPerformed
         // TODO add your handling code here:
@@ -405,5 +460,6 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }
