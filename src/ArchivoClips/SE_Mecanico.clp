@@ -98,6 +98,9 @@
 	(slot chirridos_frenos(type STRING))
 )
 
+(deftemplate respuesta_sistema "Variable que contiene la respuesta del sistema"
+	(slot respuesta_final(type STRING))
+)
 
 
 
@@ -128,6 +131,7 @@
 	(printout t "(A) Motor Electrico" crlf)
 	(printout t "(B) Motor de combustion interna" crlf)
 	(printout t "Respuesta: ")
+	
 	)
 
 (defrule reglas
@@ -400,6 +404,7 @@
 	(motor-ruido(motor_ruido A))
 =>
 	(printout t crlf "Diagnostico del sistema: Verificar fijaciones, cojinetes y barras del rotor." crlf)
+	;(assert(respuesta_sistema(respuesta_final "Diagnostico del sistema: Verificar fijaciones, cojinetes y barras del rotor." crlf")))
 )
 
 (defrule Regla2 ""

@@ -21,6 +21,11 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
      */
     public InterfazPrincipalSBC() {
         initComponents();
+        Btn_Siguiente.setEnabled(false);
+        GBtn_Principal.add(R_Btn_A);
+        GBtn_Principal.add(R_Btn_B);
+        GBtn_Principal.add(R_Btn_C);
+        GBtn_Principal.add(R_Btn_D);
     }
 
     /**
@@ -32,6 +37,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        GBtn_Principal = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -57,9 +63,11 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Sistema Experto");
 
         jLabel2.setFont(new java.awt.Font("Cooper Black", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Mecánico");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -105,15 +113,19 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        jLabel3.setText("Pregunta");
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Preguntas");
 
         Preguntas_Mostrar.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        Preguntas_Mostrar.setForeground(new java.awt.Color(255, 255, 255));
         Preguntas_Mostrar.setText("Aquí se mostrarán las preguntas del SBC.");
 
         jButton3.setText("Mostrar inferencia");
 
+        R_Btn_A.setForeground(new java.awt.Color(255, 255, 255));
         R_Btn_A.setText("A");
 
+        R_Btn_B.setForeground(new java.awt.Color(255, 255, 255));
         R_Btn_B.setText("B");
         R_Btn_B.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +133,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
             }
         });
 
+        R_Btn_C.setForeground(new java.awt.Color(255, 255, 255));
         R_Btn_C.setText("C");
         R_Btn_C.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +141,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
             }
         });
 
+        R_Btn_D.setForeground(new java.awt.Color(255, 255, 255));
         R_Btn_D.setText("D");
         R_Btn_D.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,42 +162,45 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(35, 35, 35)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(R_Btn_B)
-                                    .addComponent(R_Btn_A)
-                                    .addComponent(R_Btn_C)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(R_Btn_D)
-                                        .addGap(178, 178, 178)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addComponent(R_Btn_A)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(R_Btn_B))
+                                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addComponent(R_Btn_C)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(R_Btn_D)))
+                                        .addGap(162, 162, 162))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(218, 218, 218)
                                         .addComponent(Btn_Siguiente)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                                         .addComponent(jButton3))))
                             .addComponent(jLabel3))
-                        .addGap(35, 35, 35))))
+                        .addGap(18, 18, 18))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(10, 10, 10)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Preguntas_Mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(R_Btn_A)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(R_Btn_B)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(R_Btn_C)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Btn_Siguiente)
-                            .addComponent(jButton3))
-                        .addGap(14, 14, 14))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(R_Btn_D)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addComponent(Preguntas_Mostrar, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(R_Btn_A)
+                    .addComponent(R_Btn_B))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(R_Btn_D)
+                    .addComponent(R_Btn_C))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Btn_Siguiente)
+                    .addComponent(jButton3))
+                .addGap(14, 14, 14))
         );
 
         jButton4.setText("Reiniciar");
@@ -213,12 +230,10 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
                         .addComponent(jButton5)
                         .addGap(165, 165, 165)
                         .addComponent(jButton4)
@@ -230,7 +245,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -265,15 +280,23 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_SiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_SiguienteMouseClicked
-        String A = "A";
         try{
+            
+            
+            
             if(R_Btn_A.isSelected()){
                 this.control_motor.F_Insertar("(assert (fallo-carro(fallo_carro A)))");
             }else if(R_Btn_B.isSelected()){
-                this.control_motor.F_Insertar("(assert (clase-motor(clase_motor A)))");
+                this.control_motor.F_Insertar("(assert (fallo-carro(fallo_carro B)))");
             }else if(R_Btn_C.isSelected()){
-                this.control_motor.F_Insertar("(assert (motor-ruido(motor_ruido A)))");
+                this.control_motor.F_Insertar("(assert (fallo-carro(fallo_carro C)))");
             }
+            else if(R_Btn_C.isSelected()){
+                this.control_motor.F_Insertar("(assert (fallo-carro(fallo_carro D)))");
+            }
+            
+            
+            
             //this.pack();
         } catch (JessException ex) {
             Logger.getLogger(InterfazPrincipalSBC.class.getName()).log(Level.SEVERE, null, ex);
@@ -301,12 +324,16 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        //Preguntas_Mostrar.setText(String valueOf(control_motor.F_Ejecutar))
+        // Método para cuando se presione iniciar el SBC
+        Btn_Siguiente.setEnabled(true);
+        Preguntas_Mostrar.setText("<html> --Que tipo de falla presenta su vehiculo? <p> (A) Fallo del motor <html>");
+        
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void Btn_SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SiguienteActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_Btn_SiguienteActionPerformed
     
     
@@ -352,6 +379,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Siguiente;
+    private javax.swing.ButtonGroup GBtn_Principal;
     private javax.swing.JLabel Preguntas_Mostrar;
     private javax.swing.JRadioButton R_Btn_A;
     private javax.swing.JRadioButton R_Btn_B;
