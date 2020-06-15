@@ -42,6 +42,7 @@ public class ControlMotor {
         }
     }
     
+    
     public void F_Reiniciar(){
         try{
             r.executeCommand("(reset)");
