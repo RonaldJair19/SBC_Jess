@@ -492,8 +492,116 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
             }   
         }
         //Tercera rama sobre los fallos en la suspension
-           
-       
+        else if(Vector[0] == 'C'){
+            this.control_motor.F_Insertar("(assert (fallo-carro(fallo_carro C)))");
+            Preguntas_Mostrar.setText("<html>--Ha sentido alguna situacion extrana al conducir el auto? <p><p> (A) Si <p>(B) No <html>");
+            if(Vector[1] == 'A'){
+                this.control_motor.F_Insertar("(assert (situacion-conduccion-suspension(situacion_conduccion A)))");
+                Preguntas_Mostrar.setText("<html>--El coche rebota demasiado? <p><p> (A) Si <p>(B) No <html>");
+                if(Vector[2] == 'A'){
+                    mostrar_respuesta();
+                    this.control_motor.F_Insertar("(assert (carro-rebota(carro_rebota A)))"); 
+                }
+                else if(Vector[2] == 'B'){
+                    this.control_motor.F_Insertar("(assert (carro-rebota(carro_rebota B)))");
+                    Preguntas_Mostrar.setText("<html>--Cuales de las siguientes situaciones ha sentido? <p><p> (A) En curvas o apoyos fuertes actua extrano <p> (B) El coche esta desnivelado <html>");
+                    if(Vector[3] == 'A'){
+                        mostrar_respuesta();
+                        this.control_motor.F_Insertar("(assert (situaciones-suspension(situaciones_suspension A)))");
+                    }
+                    else if(Vector[3] == 'B'){
+                        mostrar_respuesta();
+                        this.control_motor.F_Insertar("(assert (situaciones-suspension(situaciones_suspension B)))");
+                    }
+                }   
+            }
+            else if(Vector[1] == 'B'){
+                this.control_motor.F_Insertar("(assert (situacion-conduccion-suspension(situacion_conduccion B)))");
+                Preguntas_Mostrar.setText("<html>--Sus neumaticos presentan alguno de estos tipos de desgastes? <p><p> (A) Desgaste excesivo del neumatico por los extremos o el centro de la banda <p> (B) Desgaste irregular <p> (C) Ninguno<html>");
+              if(Vector[2] == 'A'){
+                  mostrar_respuesta();
+                  this.control_motor.F_Insertar("(assert (desgaste-neumaticos(desgaste_neumaticos A)))");
+              }  
+              else if(Vector[2] == 'B'){
+                  mostrar_respuesta();
+                  this.control_motor.F_Insertar("(assert (desgaste-neumaticos(desgaste_neumaticos B)))");
+              }
+              else if(Vector[2] == 'C'){
+                  mostrar_respuesta();
+                  this.control_motor.F_Insertar("(assert (desgaste-neumaticos(desgaste_neumaticos C)))");
+              } 
+            }  
+        }
+        
+        //Cuarta rama sobre los fallos en los frenos
+        else if(Vector[0] == 'D'){
+            this.control_motor.F_Insertar("(assert (fallo-carro(fallo_carro D)))");
+            Preguntas_Mostrar.setText("<html>--Siente que el auto está frenando adecuadamente? <p><p> (A) No frena bien <p>(B) Sí está frenando bien <html>");
+            if(Vector[1] == 'B'){
+                mostrar_respuesta();
+                this.control_motor.F_Insertar("(assert (auto-no-frena(auto_no_frena B)))");   
+            }
+            else if(Vector[1] == 'A'){
+                this.control_motor.F_Insertar("(assert (auto-no-frena(auto_no_frena A)))"); 
+                Preguntas_Mostrar.setText("<html>--Siente cambios en el pedal del freno? <p><p> (A) Sí <p>(B) No <html>");
+                if(Vector[2] == 'A'){;
+                    this.control_motor.F_Insertar("(assert (cambios-pedal-freno(cambios_pedal_freno A)))");
+                    Preguntas_Mostrar.setText("<html>--Como es el tacto con el pedal? <p><p> (A) Esta mas duro de lo normal <p>(B) Sensacion de que esta esponjoso <p> (C) Siento un movimiento extrano del pedal<html>");
+                    if(Vector[3] == 'A'){
+                        mostrar_respuesta();
+                        this.control_motor.F_Insertar("(assert (tacto-pedal(tacto_pedal A)))");
+                    }
+                    else if(Vector[3] == 'B'){
+                        mostrar_respuesta();
+                        this.control_motor.F_Insertar("(assert (tacto-pedal(tacto_pedal B)))");
+                    }
+                    else if(Vector[3] == 'C'){
+                        this.control_motor.F_Insertar("(assert (tacto-pedal(tacto_pedal C)))");
+                        Preguntas_Mostrar.setText("<html>--Cuales de los siguientes movimientos realiza el pedal? <p><p> (A) Vibra <p>(B) Pulsa <p>(C) Realiza un recorrido anormal <html>");
+                        if(Vector[4] == 'A'){
+                            mostrar_respuesta();
+                            this.control_motor.F_Insertar("(assert (movimiento-pedal(movimiento_pedal A)))"); 
+                        }
+                        else if(Vector[4] == 'B'){
+                            mostrar_respuesta();
+                            this.control_motor.F_Insertar("(assert (movimiento-pedal(movimiento_pedal B)))"); 
+                        }
+                        else if(Vector[4] == 'C'){
+                            this.control_motor.F_Insertar("(assert (movimiento-pedal(movimiento_pedal C)))"); 
+                            Preguntas_Mostrar.setText("<html>--Como es el recorrido del pedal? <p><p> (A) El pedal hace un recorrido mas corto <p>(B) El recorrido del pedal se acorta <html>");
+                            if(Vector[5] == 'A'){
+                               mostrar_respuesta();
+                               this.control_motor.F_Insertar("(assert (recorrido-pedal(recorrido_pedal A)))");     
+                            }
+                            else if(Vector[5] == 'B'){
+                               mostrar_respuesta();
+                               this.control_motor.F_Insertar("(assert (recorrido-pedal(recorrido_pedal B)))");
+                            } 
+                        }
+                    }
+                }
+                else if(Vector[2] == 'B'){
+                    this.control_motor.F_Insertar("(assert (cambios-pedal-freno(cambios_pedal_freno B)))");
+                    Preguntas_Mostrar.setText("<html>--Escucha chirridos al frenar? <p><p> (A) Si <p>(B) No <html>");
+                    if(Vector[3] == 'A'){
+                        mostrar_respuesta();
+                        this.control_motor.F_Insertar("(assert (chirridos-frenos(chirridos_frenos A)))");
+                    }
+                    else if(Vector[3] == 'B'){
+                        this.control_motor.F_Insertar("(assert (chirridos-frenos(chirridos_frenos B)))");
+                        Preguntas_Mostrar.setText("<html>--Cuanto kilometraje tiene desde que cambio de frenos? <p><p> (A) Hace menos de 5000 KM <p>(B) Entre 5000 y 10000 KM <html>");
+                        if(Vector[4] == 'A'){
+                            mostrar_respuesta();
+                            this.control_motor.F_Insertar("(assert (kilometraje-frenos(kilometraje_frenos A)))");
+                        }
+                        else if(Vector[4] == 'B'){
+                            mostrar_respuesta();
+                            this.control_motor.F_Insertar("(assert (kilometraje-frenos(kilometraje_frenos B)))");
+                        }  
+                    }   
+                } 
+            }
+        }
         } catch (JessException ex) {
             Logger.getLogger(InterfazPrincipalSBC.class.getName()).log(Level.SEVERE, null, ex);
         }

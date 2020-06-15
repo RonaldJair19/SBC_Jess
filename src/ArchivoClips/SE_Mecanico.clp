@@ -540,7 +540,7 @@
 =>
 	(printout t "Diagnostico del sistema: Bujia de incandescencia defectuosa." crlf)
 )
-;Fin hasta aquí
+;Fin primera rama
 
 
 (defrule Regla16 ""
@@ -578,123 +578,150 @@
 ;fin de la segunda rama 
 
 (defrule Regla20 ""
-	(fallo-carro(fallo_carro "C"))
-	(situacion-conduccion-suspension(situacion_conduccion "A"))
-	(carro-rebota(carro_rebota "A"))
+	(fallo-carro(fallo_carro C))
+	(situacion-conduccion-suspension(situacion_conduccion A))
+	(carro-rebota(carro_rebota A))
 =>
-	(printout t crlf "Diagnostico del sistema: Amortiguadores muy desgastados." crlf)
+	(printout t "Diagnostico del sistema: Amortiguadores muy desgastados.")
 )
 
-(defrule Regla21 ""
-	(fallo-carro(fallo_carro "C"))
-	(situacion-conduccion-suspension(situacion_conduccion "A"))
-	(carro-rebota(carro_rebota "B"))
-	(situaciones-suspension(situaciones_suspension "A"))
+(defrule Regla33 ""
+	(fallo-carro(fallo_carro C))
+	(situacion-conduccion-suspension(situacion_conduccion B))
+	(desgaste-neumaticos(desgaste_neumaticos A))
 =>
-	(printout t crlf "Diagnostico del sistema: Amortiguadores mal ajustados." crlf)
+	(printout t "Diagnostico del sistema: Baja presión en los neumaticos")
+)
+
+(defrule Regla34 ""
+	(fallo-carro(fallo_carro C))
+	(situacion-conduccion-suspension(situacion_conduccion B))
+	(desgaste-neumaticos(desgaste_neumaticos B))
+=>
+	(printout t "Diagnostico del sistema: Fuga de aceite en un amortiguador")
+)
+
+(defrule Regla35 ""
+	(fallo-carro(fallo_carro C))
+	(situacion-conduccion-suspension(situacion_conduccion B))
+	(desgaste-neumaticos(desgaste_neumaticos C))
+=>
+	(printout t "Diagnostico del sistema: Revison de la suspension en mantenimiento")
+)
+
+
+(defrule Regla21 ""
+	(fallo-carro(fallo_carro C))
+	(situacion-conduccion-suspension(situacion_conduccion A))
+	(carro-rebota(carro_rebota B))
+	(situaciones-suspension(situaciones_suspension A))
+=>
+	(printout t "Diagnostico del sistema: Amortiguadores mal ajustados.")
 )
 
 (defrule Regla22 ""
-	(fallo-carro(fallo_carro "C"))
-	(situacion-conduccion-suspension(situacion_conduccion "A"))
-	(carro-rebota(carro_rebota "B"))
-	(situaciones-suspension(situaciones_suspension "B"))
+	(fallo-carro(fallo_carro C))
+	(situacion-conduccion-suspension(situacion_conduccion A))
+	(carro-rebota(carro_rebota B))
+	(situaciones-suspension(situaciones_suspension B))
 =>
-	(printout t crlf "Diagnostico del sistema: Los brazos de la suspension se han doblado o partido." crlf)
+	(printout t "Diagnostico del sistema: Los brazos de la suspension se han doblado o partido.")
 )
 
+
+;Fin tercera rama
 (defrule Regla23 ""
-	(fallo-carro(fallo_carro "D"))
-	(auto-no-frena(auto_no_frena "A"))
-	(cambios-pedal-freno(cambios_pedal_freno "A"))
-	(tacto-pedal(tacto_pedal "A"))
+	(fallo-carro(fallo_carro D))
+	(auto-no-frena(auto_no_frena A))
+	(cambios-pedal-freno(cambios_pedal_freno A))
+	(tacto-pedal(tacto_pedal A))
 =>
-	(printout t crlf "Diagnostico del sistema: Pastillas de freno sucias." crlf)
+	(printout t "Diagnostico del sistema: Pastillas de freno sucias.")
 )
 
 (defrule Regla24 ""
-	(fallo-carro(fallo_carro "D"))
-	(auto-no-frena(auto_no_frena "A"))
-	(cambios-pedal-freno(cambios_pedal_freno "A"))
-	(tacto-pedal(tacto_pedal "B"))
+	(fallo-carro(fallo_carro D))
+	(auto-no-frena(auto_no_frena A))
+	(cambios-pedal-freno(cambios_pedal_freno A))
+	(tacto-pedal(tacto_pedal B))
 =>
-	(printout t crlf "Diagnostico del sistema: Existencia de pinza agripada." crlf)
+	(printout t "Diagnostico del sistema: Existencia de pinza agripada.")
 )
 
 (defrule Regla25 ""
-	(fallo-carro(fallo_carro "D"))
-	(auto-no-frena(auto_no_frena "A"))
-	(cambios-pedal-freno(cambios_pedal_freno "A"))
-	(tacto-pedal(tacto_pedal "C"))
-	(movimiento-pedal(movimiento_pedal "A"))
+	(fallo-carro(fallo_carro D))
+	(auto-no-frena(auto_no_frena A))
+	(cambios-pedal-freno(cambios_pedal_freno A))
+	(tacto-pedal(tacto_pedal C))
+	(movimiento-pedal(movimiento_pedal A))
 =>
-	(printout t crlf "Diagnostico del sistema: Rodamientos de la rueda gastados." crlf)
+	(printout t "Diagnostico del sistema: Rodamientos de la rueda gastados.")
 )
 
 (defrule Regla26 ""
-	(fallo-carro(fallo_carro "D"))
-	(auto-no-frena(auto_no_frena "A"))
-	(cambios-pedal-freno(cambios_pedal_freno "A"))
-	(tacto-pedal(tacto_pedal "C"))
-	(movimiento-pedal(movimiento_pedal "B"))
+	(fallo-carro(fallo_carro D))
+	(auto-no-frena(auto_no_frena A))
+	(cambios-pedal-freno(cambios_pedal_freno A))
+	(tacto-pedal(tacto_pedal C))
+	(movimiento-pedal(movimiento_pedal B))
 =>
-	(printout t crlf "Diagnostico del sistema: Rotula en mal estado." crlf)
+	(printout t "Diagnostico del sistema: Rotula en mal estado.")
 )
 
 (defrule Regla27 ""
-	(fallo-carro(fallo_carro "D"))
-	(auto-no-frena(auto_no_frena "A"))
-	(cambios-pedal-freno(cambios_pedal_freno "A"))
-	(tacto-pedal(tacto_pedal "C"))
-	(movimiento-pedal(movimiento_pedal "C"))
-	(recorrido-pedal(recorrido_pedal "A"))
+	(fallo-carro(fallo_carro D))
+	(auto-no-frena(auto_no_frena A))
+	(cambios-pedal-freno(cambios_pedal_freno A))
+	(tacto-pedal(tacto_pedal C))
+	(movimiento-pedal(movimiento_pedal C))
+	(recorrido-pedal(recorrido_pedal A))
 =>
-	(printout t crlf "Diagnostico del sistema: Falta de liquido de freno o fuga del mismo." crlf)
+	(printout t "Diagnostico del sistema: Falta de liquido de freno o fuga del mismo.")
 )
 
 (defrule Regla28 ""
-	(fallo-carro(fallo_carro "D"))
-	(auto-no-frena(auto_no_frena "A"))
-	(cambios-pedal-freno(cambios_pedal_freno "A"))
-	(tacto-pedal(tacto_pedal "C"))
-	(movimiento-pedal(movimiento_pedal "C"))
-	(recorrido-pedal(recorrido_pedal "B"))
+	(fallo-carro(fallo_carro D))
+	(auto-no-frena(auto_no_frena A))
+	(cambios-pedal-freno(cambios_pedal_freno A))
+	(tacto-pedal(tacto_pedal C))
+	(movimiento-pedal(movimiento_pedal C))
+	(recorrido-pedal(recorrido_pedal B))
 =>
-	(printout t crlf "Diagnostico del sistema: Dano en las piezas que intervienen en la extension y retraccion de las partes moviles." crlf)
+	(printout t "Diagnostico del sistema: Dano en las piezas que intervienen en la extension y retraccion de las partes moviles.")
 )
 
 (defrule Regla29 ""
-	(fallo-carro(fallo_carro "D"))
-	(auto-no-frena(auto_no_frena "A"))
-	(cambios-pedal-freno(cambios_pedal_freno "B"))
-	(chirridos-frenos(chirridos_frenos "A"))
+	(fallo-carro(fallo_carro D))
+	(auto-no-frena(auto_no_frena A))
+	(cambios-pedal-freno(cambios_pedal_freno B))
+	(chirridos-frenos(chirridos_frenos A))
 =>
-	(printout t crlf "Diagnostico del sistema: Pastillas Sucias." crlf)
+	(printout t "Diagnostico del sistema: Pastillas Sucias.")
 )
 
 (defrule Regla30 ""
-	(fallo-carro(fallo_carro "D"))
-	(auto-no-frena(auto_no_frena "A"))
-	(cambios-pedal-freno(cambios_pedal_freno "B"))
-	(chirridos-frenos(chirridos_frenos "B"))
-	(kilometraje-frenos(kilometraje_frenos "A"))
+	(fallo-carro(fallo_carro D))
+	(auto-no-frena(auto_no_frena A))
+	(cambios-pedal-freno(cambios_pedal_freno B))
+	(chirridos-frenos(chirridos_frenos B))
+	(kilometraje-frenos(kilometraje_frenos A))
 =>
-	(printout t crlf "Diagnostico del sistema: Problema de Fading." crlf)
+	(printout t "Diagnostico del sistema: Problema de Fading.")
 )
 
 (defrule Regla31 ""
-	(fallo-carro(fallo_carro "D"))
-	(auto-no-frena(auto_no_frena "A"))
-	(cambios-pedal-freno(cambios_pedal_freno "B"))
-	(chirridos-frenos(chirridos_frenos "B"))
-	(kilometraje-frenos(kilometraje_frenos "B"))
+	(fallo-carro(fallo_carro D))
+	(auto-no-frena(auto_no_frena A))
+	(cambios-pedal-freno(cambios_pedal_freno B))
+	(chirridos-frenos(chirridos_frenos B))
+	(kilometraje-frenos(kilometraje_frenos B))
 =>
-	(printout t crlf "Diagnostico del sistema: Pastillas de frenado en mal estado." crlf)
+	(printout t "Diagnostico del sistema: Pastillas de frenado en mal estado.")
 )
 
 (defrule Regla32 ""
-	(fallo-carro(fallo_carro "D"))
-	(auto-no-frena(auto_no_frena "B"))
+	(fallo-carro(fallo_carro D))
+	(auto-no-frena(auto_no_frena B))
 =>
-	(printout t crlf "Diagnostico del sistema: Llevar a manteniento." crlf)
+	(printout t "Diagnostico del sistema: Llevar a manteniento.")
 )
