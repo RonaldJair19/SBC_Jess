@@ -361,7 +361,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         try{
            if(Vector[0] == 'A'){
             this.control_motor.F_Insertar("(assert (fallo-carro(fallo_carro A)))");
-            Preguntas_Mostrar.setText("<html> -- Que tipo de motor utiliza su automovil? <p><p> (A) Motor Electrico <p> (B) Motor de combustion interna <p> (C) Fallo en la suspension<html>");  
+            Preguntas_Mostrar.setText("<html> -- Que tipo de motor utiliza su automovil? <p><p> (A) Motor Electrico <p> (B) Motor de combustion interna <html>");  
                 if(Vector[1] == 'A'){
                     this.control_motor.F_Insertar("(assert (clase-motor(clase_motor A)))");
                     Preguntas_Mostrar.setText("<html> -- Su motor electrico hace algun ruido? <p><p> (A) Si <p> (B) No hace ningun ruido");
@@ -391,8 +391,8 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
                         } 
                     }   
                 }
-                //Primera rama terminada
-                //Segunda rama por iniciar
+                //Primera parte de la primera rama terminada
+                //Segunda parte de la primera rama por iniciar
                 else if(Vector[1] == 'B'){
                     this.control_motor.F_Insertar("(assert (clase-motor(clase_motor B)))");
                     Preguntas_Mostrar.setText("<html> -- Que clase de combustible utiliza su motor? <p><p> (A) Motor de gasolina <p> (B) Motor diesel");
@@ -458,24 +458,42 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
                                         this.control_motor.F_Insertar("(assert (auto-detenido(auto_detenido B)))");
                                     }
                                 }
-
-
-
-                            
-                            
                             }
-                        
-                        
+                        }   
                     }
-                        
-                        
-                        
-                        
+        }
+         //Segunda rama sobre fallos eléctricos
+        else if(Vector[0] == 'B'){
+            this.control_motor.F_Insertar("(assert (fallo-carro(fallo_carro B)))");
+            Preguntas_Mostrar.setText("<html> --Su automovil puede encender? <p><p> (A) Si <p>(B) No <html>");
+            if(Vector[1] == 'A'){
+                this.control_motor.F_Insertar("(assert (auto-encender(auto_encender A)))");
+                Preguntas_Mostrar.setText("<html>--Las luces encienden con poca intensidad? <p><p> (A) Si <p>(B) No <html>");
+                if(Vector[2] == 'A'){
+                   this.control_motor.F_Insertar("(assert (intensidad-luces(intensidad_luces A)))");
+                    Preguntas_Mostrar.setText("<html>--Su bateria es vieja? <p><p> (A) Si <p>(B) No <html>");
+                    if(Vector[3] == 'A'){
+                        mostrar_respuesta();
+                        this.control_motor.F_Insertar("(assert (bateria-vieja(bateria_vieja A)))");  
                     }
-                
-                
+                    else if(Vector[3] == 'B'){
+                        mostrar_respuesta();
+                        this.control_motor.F_Insertar("(assert (bateria-vieja(bateria_vieja B)))");  
+                    }   
+                }
+                else if(Vector[2] == 'B'){
+                    mostrar_respuesta();
+                    this.control_motor.F_Insertar("(assert (intensidad-luces(intensidad_luces B)))");
+                }    
+            }
+            else if(Vector[1] == 'B'){
+                mostrar_respuesta();
+                this.control_motor.F_Insertar("(assert (auto-encender(auto_encender B)))");  
+            }   
+        }
+        //Tercera rama sobre los fallos en la suspension
            
-           } 
+       
         } catch (JessException ex) {
             Logger.getLogger(InterfazPrincipalSBC.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -502,7 +520,6 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         control_motor.r.addOutputRouter("WSTDOUT", taw);
         control_motor.r.addOutputRouter("WSTDERR", taw);
         jPanel4.add(ta);
-        Btn_Reiniciar.setEnabled(true);
         Btn_Siguiente.setEnabled(false);
         
     }
@@ -515,7 +532,8 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         Vector_respuestas[i]= ' ';
          }
         Con = 0;
-        Btn_Reiniciar.setEnabled(false);
+        GBtn_Principal.clearSelection();
+        //Btn_Reiniciar.setEnabled(false);
     }
 
     
@@ -550,6 +568,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         R_Btn_C.setEnabled(true);
         R_Btn_D.setEnabled(true);
         jButton5.setEnabled(false);
+        Btn_Reiniciar.setEnabled(true);
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -560,6 +579,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
 
     private void Btn_ReiniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_ReiniciarMouseClicked
         Btn_Siguiente.setEnabled(true);
+        Btn_Reiniciar.setEnabled(true);
         Preguntas_Mostrar.setText("<html> --Que tipo de falla presenta su vehiculo? <p><p> (A) Fallo del motor <p> (B) Fallo electrico <p> (C) Fallo en la suspension <p>(D) Fallo en los frenos<html>");
         Fin_Rama();  
     }//GEN-LAST:event_Btn_ReiniciarMouseClicked

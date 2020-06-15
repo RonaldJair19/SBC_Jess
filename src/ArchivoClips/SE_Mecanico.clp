@@ -544,37 +544,38 @@
 
 
 (defrule Regla16 ""
-	(fallo-carro(fallo_carro "B"))
-	(auto-encender(auto_encender "A"))
-	(intensidad-luces(intensidad_luces "A"))
-	(bateria-vieja(bateria_vieja "A"))
+	(fallo-carro(fallo_carro B))
+	(auto-encender(auto_encender A))
+	(intensidad-luces(intensidad_luces A))
+	(bateria-vieja(bateria_vieja A))
 =>
-	(printout t crlf "Diagnostico del sistema: Cambio de Bateria." crlf)
+	(printout t "Diagnostico del sistema: Cambio de Bateria.")
 )
 
 (defrule Regla17 ""
-	(fallo-carro(fallo_carro "B"))
-	(auto-encender(auto_encender "A"))
-	(intensidad-luces(intensidad_luces "A"))
-	(bateria-vieja(bateria_vieja "B"))
+	(fallo-carro(fallo_carro B))
+	(auto-encender(auto_encender A))
+	(intensidad-luces(intensidad_luces A))
+	(bateria-vieja(bateria_vieja B))
 =>
-	(printout t crlf "Diagnostico del sistema: Revision de Alternador." crlf)
+	(printout t "Diagnostico del sistema: Revision de Alternador.")
 )
 
 (defrule Regla18 ""
-	(fallo-carro(fallo_carro "B"))
-	(auto-encender(auto_encender "A"))
-	(intensidad-luces(intensidad_luces "B"))
+	(fallo-carro(fallo_carro B))
+	(auto-encender(auto_encender A))
+	(intensidad-luces(intensidad_luces B))
 =>
-	(printout t crlf "Diagnostico del sistema: Revision de Bombillas." crlf)
+	(printout t "Diagnostico del sistema: Revision de Bombillas.")
 )
 
 (defrule Regla19 ""
-	(fallo-carro(fallo_carro "B"))
-	(auto-encender(auto_encender "B"))
+	(fallo-carro(fallo_carro B))
+	(auto-encender(auto_encender B))
 =>
-	(printout t crlf "Diagnostico del sistema: Revision de bujias." crlf)
+	(printout t "Diagnostico del sistema: Revision de bujias.")
 )
+;fin de la segunda rama 
 
 (defrule Regla20 ""
 	(fallo-carro(fallo_carro "C"))
