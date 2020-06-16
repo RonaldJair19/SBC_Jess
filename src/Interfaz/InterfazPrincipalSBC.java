@@ -158,6 +158,11 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/manual.png"))); // NOI18N
         jButton3.setText("Mostrar inferencia");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         R_Btn_A.setBackground(new java.awt.Color(102, 102, 102));
         R_Btn_A.setFont(new java.awt.Font("Cooper Black", 0, 24)); // NOI18N
@@ -641,20 +646,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         }
         } catch (JessException ex) {
             Logger.getLogger(InterfazPrincipalSBC.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        }     
     }
     
     public void mostrar_respuesta(){
@@ -728,6 +720,16 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
         Preguntas_Mostrar.setText("<html> --Que tipo de falla presenta su vehiculo? <p><p> (A) Fallo del motor <p> (B) Fallo electrico <p> (C) Fallo en la suspension <p>(D) Fallo en los frenos<html>");
         Fin_Rama();  
     }//GEN-LAST:event_Btn_ReiniciarMouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        try {
+            this.motor_control.r.executeCommand("(facts)");
+            this.motor_control.r.run();
+
+        } catch (JessException ex) {
+            Logger.getLogger(InterfazPrincipalSBC.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton3MouseClicked
     
     
     public void setControlMotor(ControlMotor motor_control){
