@@ -723,8 +723,7 @@ public class InterfazPrincipalSBC extends javax.swing.JFrame {
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         try {
-            this.motor_control.r.executeCommand("(facts)");
-            this.motor_control.r.run();
+            motor_control.F_Mostrar_Inferencia();
 
         } catch (JessException ex) {
             Logger.getLogger(InterfazPrincipalSBC.class.getName()).log(Level.SEVERE, null, ex);

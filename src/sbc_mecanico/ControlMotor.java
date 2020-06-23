@@ -35,14 +35,14 @@ public class ControlMotor {
         
     }
     
-    /*public void F_Mostrar_Inferencia(String hecho) throws JessException{
-        r.eval(hecho);
+    public void F_Mostrar_Inferencia() throws JessException{
+        //r.eval(hecho);
         //r.assertString(hecho);
-        //r.executeCommand("(facts)");
+        r.executeCommand("(facts)");
         //r.executeCommand("(run)");
         this.r.run();
     
-    }*/
+    }
     
     
     public void F_Ejecutar(){
